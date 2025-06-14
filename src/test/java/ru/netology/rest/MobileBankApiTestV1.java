@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 
+
 class MobileBankApiTestV1 {
     @Test
     void shouldReturnDemoAccounts() {
@@ -12,10 +13,10 @@ class MobileBankApiTestV1 {
         given()
                 .baseUri("http://localhost:9999/api/v1")
                 // Выполняемые действия
-                .when()
+                .when().log( ).all()
                 .get("/demo/accounts")
                 // Проверки
-                .then()
+                .then().log( ).all()
                 .statusCode(200);
     }
 }
